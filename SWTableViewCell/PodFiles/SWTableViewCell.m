@@ -195,12 +195,14 @@ static NSString * const kTableViewPanState = @"state";
 {
     [self removeOldTableViewPanObserver];
     
-    _tableViewPanGestureRecognizer = containingTableView.panGestureRecognizer;
+    
     
     _containingTableView = containingTableView;
     
     if (containingTableView)
     {
+        _tableViewPanGestureRecognizer = containingTableView.panGestureRecognizer;
+        
         // Check if the UITableView will display Indices on the right. If that's the case, add a padding
         if ([_containingTableView.dataSource respondsToSelector:@selector(sectionIndexTitlesForTableView:)])
         {
